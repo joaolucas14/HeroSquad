@@ -3,7 +3,7 @@ import "./Banner.css";
 export const Banner = () => {
   return (
     <header className="banner">
-      <img src="/imagens/banner.png" alt="banner principal" />
+      <img src="/imagens/banner.jpg" alt="banner principal" />
     </header>
   );
 };
