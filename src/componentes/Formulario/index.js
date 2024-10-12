@@ -6,24 +6,28 @@ import "./Formulario.css";
 
 const Formulario = (props) => {
   const [nome, setNome] = useState("");
-  const [cargo, setCargo] = useState("");
+  const [descricao, setDescricao] = useState("");
   const [imagem, setImagem] = useState("");
   const [time, setTime] = useState(props.times[0]);
 
   const aoSalvar = (evento) => {
     evento.preventDefault();
-    props.aoColaboradorCadastrado({
+    props.aoHeroiCadastrado({
       nome,
-      cargo,
+      descricao,
       imagem,
       time,
     });
+    setNome("");
+    setDescricao("");
+    setImagem("");
+    setTime("");
   };
 
   return (
     <section className="formulario">
       <form onSubmit={aoSalvar}>
-        <h2>Preencha os dados para criar o card do colaborador</h2>
+        <h2>Preencha os dados para criar o card do seu Super Herói</h2>
         <CampoTexto
           valor={nome}
           aoAlterado={(valor) => setNome(valor)}
@@ -32,11 +36,11 @@ const Formulario = (props) => {
           placeholder="Digite seu nome"
         />
         <CampoTexto
-          valor={cargo}
-          aoAlterado={(valor) => setCargo(valor)}
+          valor={descricao}
+          aoAlterado={(valor) => setDescricao(valor)}
           obrigatorio={true}
-          label="Cargo"
-          placeholder="Digite seu cargo"
+          label="Descrição"
+          placeholder="Digite sua descrição"
         />
         <CampoTexto
           valor={imagem}
