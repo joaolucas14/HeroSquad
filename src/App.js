@@ -7,18 +7,18 @@ function App() {
   const times = [
     {
       nome: "Ataque",
-      corPrimaria: "#57C278",
-      corSecundaria: "#D9F7E9",
+      corPrimaria: "#F50501",
+      corSecundaria: "#F57876",
     },
     {
       nome: "Defesa",
-      corPrimaria: "#82CFFA",
-      corSecundaria: "#E8F8FF",
+      corPrimaria: "#0114F5",
+      corSecundaria: "#AFB5F5",
     },
     {
       nome: "Suporte",
-      corPrimaria: "#A6D157",
-      corSecundaria: "#F0F8E2",
+      corPrimaria: "#F5DE00",
+      corSecundaria: "#F5F1CE",
     },
   ];
 

@@ -1,8 +1,11 @@
-.banner{
+.banner {
     background-color: #fff;
     text-align: center;
+    min-width: 300px;
 }
 
-.banner img{
-    height: 300px;
+.banner img {
+    width: 800px;
+    max-width: 100%;
+    height: auto;
 }
