@@ -9,16 +9,6 @@ const Time = (props) => {
         <h3 style={{ borderColor: props.corPrimaria }}>{props.nome}</h3>
         <div className="herois">
           {props.herois.map((heroi) => {
-            console.log(
-              <Heroi
-                key={heroi.nome}
-                nome={heroi.nome}
-                descricao={heroi.descricao}
-                imagem={heroi.imagem}
-                corDeFundo={props.corPrimaria}
-                aoDeletar={props.HeroiaoDeletar}
-              />
-            );
             return (
               <Heroi
                 key={heroi.nome}
@@ -26,7 +16,7 @@ const Time = (props) => {
                 descricao={heroi.descricao}
                 imagem={heroi.imagem}
                 corDeFundo={props.corPrimaria}
-                aoDeletar={props.HeroiaoDeletar}
+                aoDeletar={props.aoDeletar}
               />
             );
           })}

@@ -23,6 +23,11 @@ function App() {
   ];
 
   const [herois, setHerois] = useState([]);
+
+  function deletarHeroi() {
+    console.log("deletando heroi");
+  }
+
   const aoNovoHeroiAdicionado = (heroi) => {
     setHerois([...herois, heroi]);
   };
@@ -41,6 +46,7 @@ function App() {
           corPrimaria={time.corPrimaria}
           corSecundaria={time.corSecundaria}
           herois={herois.filter((heroi) => heroi.time === time.nome)}
+          aoDeletar={deletarHeroi}
         />
       ))}
     </div>

@@ -1,8 +1,10 @@
+import { IoIosCloseCircle } from "react-icons/io";
 import "./Heroi.css";
 
-const Heroi = ({ nome, imagem, descricao, corDeFundo }) => {
+const Heroi = ({ nome, imagem, descricao, corDeFundo, aoDeletar }) => {
   return (
     <div className="heroi">
+      <IoIosCloseCircle size={25} className="deletar" onClick={aoDeletar} />
       <div className="cabecalho" style={{ backgroundColor: corDeFundo }}>
         <img src={imagem} alt={nome} />
       </div>
