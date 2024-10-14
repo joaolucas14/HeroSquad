@@ -4,7 +4,7 @@ import Formulario from "./componentes/Formulario";
 import Time from "./componentes/Time";
 
 function App() {
-  const times = [
+  const [times, setTimes] = useState([
     {
       nome: "Ataque",
       corPrimaria: "#F50501",
@@ -20,12 +20,23 @@ function App() {
       corPrimaria: "#F5DE00",
       corSecundaria: "#F5F1CE",
     },
-  ];
+  ]);
 
   const [herois, setHerois] = useState([]);
 
   function deletarHeroi() {
     console.log("deletando heroi");
+  }
+
+  function mudarCorDoTime(cor, nome) {
+    setTimes(
+      times.map((time) => {
+        if (time.nome === nome) {
+          time.corPrimaria = cor;
+        }
+        return time;
+      })
+    );
   }
 
   const aoNovoHeroiAdicionado = (heroi) => {
@@ -47,6 +58,7 @@ function App() {
           corSecundaria={time.corSecundaria}
           herois={herois.filter((heroi) => heroi.time === time.nome)}
           aoDeletar={deletarHeroi}
+          mudarCor={mudarCorDoTime}
         />
       ))}
     </div>
