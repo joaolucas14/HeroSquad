@@ -1,14 +1,15 @@
 import Heroi from "../Heroi";
 import "./Time.css";
+import hexToRgba from "hex-to-rgba";
 
 const Time = (props) => {
-  const css = { backgroundColor: props.corSecundaria };
+  const css = { backgroundColor: hexToRgba(props.corPrimaria, "0.6") };
   return (
     props.herois.length > 0 && (
       <section className="time" style={css}>
         <input
           onChange={(evento) => props.mudarCor(evento.target.value, props.nome)}
-          value={props.corSecundaria}
+          value={props.corPrimaria}
           type="color"
           className="input-color"
         />
