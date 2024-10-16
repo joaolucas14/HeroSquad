@@ -21,7 +21,7 @@ const Formulario = (props) => {
     setNome("");
     setDescricao("");
     setImagem("");
-    setTime("");
+    setTime(props.times[0]);
   };
 
   return (

@@ -1,7 +1,7 @@
 import { IoIosCloseCircle } from "react-icons/io";
 import "./Heroi.css";
 
-const Heroi = ({ nome, imagem, descricao, corDeFundo, aoDeletar }) => {
+const Heroi = ({ nome, imagem, descricao, corDeFundo, aoDeletar, id }) => {
   return (
     <div className="heroi">
       <IoIosCloseCircle size={25} className="deletar" onClick={aoDeletar} />
@@ -12,6 +12,7 @@ const Heroi = ({ nome, imagem, descricao, corDeFundo, aoDeletar }) => {
       <div className="rodape">
         <h4>{nome}</h4>
         <h5>{descricao}</h5>
+        <h5>{id}</h5>
       </div>
     </div>
   );
