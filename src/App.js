@@ -26,7 +26,6 @@ function App() {
   const [herois, setHerois] = useState([]);
 
   function deletarHeroi(id) {
-    console.log("teste");
     setHerois(herois.filter((heroi) => heroi.id !== id));
   }
 
@@ -45,10 +44,17 @@ function App() {
     heroi.id = uuidv4();
     setHerois([...herois, heroi]);
   };
+
+  function cadastrarTime(novoTime) {
+    setTimes([...times, { ...novoTime, id: uuidv4() }]);
+    console.log(times);
+  }
+
   return (
     <div className="App">
       <Banner />
       <Formulario
+        cadastrarTime={cadastrarTime}
         times={times.map((time) => time.nome)}
         aoHeroiCadastrado={(heroi) => aoNovoHeroiAdicionado(heroi)}
       />
