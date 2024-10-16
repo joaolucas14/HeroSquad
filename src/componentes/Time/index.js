@@ -8,7 +8,7 @@ const Time = (props) => {
     props.herois.length > 0 && (
       <section className="time" style={css}>
         <input
-          onChange={(evento) => props.mudarCor(evento.target.value, props.nome)}
+          onChange={(evento) => props.mudarCor(evento.target.value, props.id)}
           value={props.corPrimaria}
           type="color"
           className="input-color"
@@ -18,7 +18,8 @@ const Time = (props) => {
           {props.herois.map((heroi) => {
             return (
               <Heroi
-                key={heroi.nome}
+                id={heroi.id}
+                key={heroi.id}
                 nome={heroi.nome}
                 descricao={heroi.descricao}
                 imagem={heroi.imagem}

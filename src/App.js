@@ -2,37 +2,38 @@ import { useState } from "react";
 import Banner from "./componentes/Banner";
 import Formulario from "./componentes/Formulario";
 import Time from "./componentes/Time";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [times, setTimes] = useState([
     {
+      id: uuidv4(),
       nome: "Ataque",
-      corPrimaria: "#F50501",
-      corSecundaria: "#F57876",
+      cor: "#F50501",
     },
     {
+      id: uuidv4(),
       nome: "Defesa",
-      corPrimaria: "#0114F5",
-      corSecundaria: "#AFB5F5",
+      cor: "#0114F5",
     },
     {
+      id: uuidv4(),
       nome: "Suporte",
-      corPrimaria: "#F5DE00",
-      corSecundaria: "#F5F1CE",
+      cor: "#F5DE00",
     },
   ]);
 
   const [herois, setHerois] = useState([]);
 
-  function deletarHeroi() {
-    console.log("deletando heroi");
+  function deletarHeroi(id) {
+    setHerois(herois.filter((heroi) => heroi.id !== id));
   }
 
-  function mudarCorDoTime(cor, nome) {
+  function mudarCorDoTime(cor, id) {
     setTimes(
       times.map((time) => {
-        if (time.nome === nome) {
-          time.corPrimaria = cor;
+        if (time.id === id) {
+          time.cor = cor;
         }
         return time;
       })
@@ -40,12 +41,20 @@ function App() {
   }
 
   const aoNovoHeroiAdicionado = (heroi) => {
+    heroi.id = uuidv4();
     setHerois([...herois, heroi]);
   };
+
+  function cadastrarTime(novoTime) {
+    setTimes([...times, { ...novoTime, id: uuidv4() }]);
+    console.log(times);
+  }
+
   return (
     <div className="App">
       <Banner />
       <Formulario
+        cadastrarTime={cadastrarTime}
         times={times.map((time) => time.nome)}
         aoHeroiCadastrado={(heroi) => aoNovoHeroiAdicionado(heroi)}
       />
@@ -54,11 +63,11 @@ function App() {
         <Time
           key={time.nome}
           nome={time.nome}
-          corPrimaria={time.corPrimaria}
-          corSecundaria={time.corSecundaria}
+          corPrimaria={time.cor}
           herois={herois.filter((heroi) => heroi.time === time.nome)}
           aoDeletar={deletarHeroi}
           mudarCor={mudarCorDoTime}
+          id={time.id}
         />
       ))}
     </div>
