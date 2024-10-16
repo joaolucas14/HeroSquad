@@ -25,8 +25,9 @@ function App() {
 
   const [herois, setHerois] = useState([]);
 
-  function deletarHeroi() {
-    console.log("deletando heroi");
+  function deletarHeroi(id) {
+    console.log("teste");
+    setHerois(herois.filter((heroi) => heroi.id !== id));
   }
 
   function mudarCorDoTime(cor, id) {
@@ -41,6 +42,7 @@ function App() {
   }
 
   const aoNovoHeroiAdicionado = (heroi) => {
+    heroi.id = uuidv4();
     setHerois([...herois, heroi]);
   };
   return (

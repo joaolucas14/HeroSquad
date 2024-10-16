@@ -1,7 +1,6 @@
 import Heroi from "../Heroi";
 import "./Time.css";
 import hexToRgba from "hex-to-rgba";
-import { v4 as uuidv4 } from "uuid";
 
 const Time = (props) => {
   const css = { backgroundColor: hexToRgba(props.corPrimaria, "0.6") };
@@ -19,8 +18,8 @@ const Time = (props) => {
           {props.herois.map((heroi) => {
             return (
               <Heroi
-                id={uuidv4()}
-                key={heroi.nome}
+                id={heroi.id}
+                key={heroi.id}
                 nome={heroi.nome}
                 descricao={heroi.descricao}
                 imagem={heroi.imagem}
