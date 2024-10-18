@@ -19,12 +19,14 @@ const Time = (props) => {
             return (
               <Heroi
                 id={heroi.id}
+                favorito={heroi.favorito}
                 key={heroi.id}
                 nome={heroi.nome}
                 descricao={heroi.descricao}
                 imagem={heroi.imagem}
                 corDeFundo={props.corPrimaria}
                 aoDeletar={props.aoDeletar}
+                aoFavoritar={props.aoFavoritar}
               />
             );
           })}

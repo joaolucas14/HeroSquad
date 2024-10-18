@@ -42,12 +42,21 @@ function App() {
 
   const aoNovoHeroiAdicionado = (heroi) => {
     heroi.id = uuidv4();
+    heroi.favorito = false;
     setHerois([...herois, heroi]);
   };
 
   function cadastrarTime(novoTime) {
     setTimes([...times, { ...novoTime, id: uuidv4() }]);
-    console.log(times);
+  }
+
+  function resolverFavorito(id) {
+    setHerois(
+      herois.map((heroi) => {
+        if (heroi.id === id) heroi.favorito = !heroi.favorito;
+        return heroi;
+      })
+    );
   }
 
   return (
@@ -61,6 +70,7 @@ function App() {
 
       {times.map((time) => (
         <Time
+          aoFavoritar={resolverFavorito}
           key={time.nome}
           nome={time.nome}
           corPrimaria={time.cor}
