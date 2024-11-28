@@ -61,7 +61,10 @@ function App() {
 
   return (
     <div className="App">
-      <Banner enderecoImagem="/imagens/banner.jpg" />
+      <Banner
+        enderecoImagem="/imagens/banner.jpg"
+        textoAlternativo="banner principal"
+      />
       <Formulario
         cadastrarTime={cadastrarTime}
         times={times.map((time) => time.nome)}
