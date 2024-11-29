@@ -1,7 +1,8 @@
-export interface IColaborador{
-    id: number;
+export interface IHeroi{
+    id?: number
     nome: string; 
-    descricao: string;
-    imagem: string;
-    favorito: boolean;
+    descricao: string
+    imagem: string
+    favorito?: boolean
+    time?: string
 }

@@ -1,4 +1,4 @@
-import { IColaborador as IHeroi } from "../../compartilhado/interface/IHeroi";
+import { IHeroi as IHeroi } from "../../compartilhado/interface/IHeroi";
 import Heroi from "../Heroi";
 import "./Time.css";
 import hexToRgba from "hex-to-rgba";
@@ -29,8 +29,8 @@ const Time = (props:TimeProps) => {
           {props.herois.map((heroi) => {
             return (
               <Heroi
-                id={heroi.id}
-                favorito={heroi.favorito}
+                id={heroi.id ?? 0}
+                favorito={heroi.favorito ?? false}
                 key={heroi.id}
                 nome={heroi.nome}
                 descricao={heroi.descricao}

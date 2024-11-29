@@ -9,7 +9,7 @@ interface HeroiProps{
     imagem: string;
     favorito: boolean;
     corDeFundo: string
-    aoDeletar: (id: number) => void; 
+    aoDeletar: (id: number) => void ; 
     aoFavoritar: (id: number) => void; 
 }
 
