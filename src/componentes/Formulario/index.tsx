@@ -3,8 +3,16 @@ import Botao from "../Botao";
 import Campo from "../Campo";
 import ListaSuspensa from "../ListaSuspensa";
 import "./Formulario.css";
+import { IHeroi } from "../../compartilhado/interface/IHeroi";
 
-const Formulario = (props) => {
+
+interface FormularioProps{
+  aoHeroiCadastrado:(heroi:IHeroi) =>void
+  times:string[]
+  cadastrarTime: (time: { nome: string; cor: string }) => void;
+}
+
+const Formulario = (props:FormularioProps) => {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const [imagem, setImagem] = useState("");
@@ -12,7 +20,7 @@ const Formulario = (props) => {
   const [nomeTime, setNomeTime] = useState("");
   const [corTime, setCorTime] = useState("");
 
-  const aoSalvar = (evento) => {
+  const aoSalvar = (evento:React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
     props.aoHeroiCadastrado({
       nome,

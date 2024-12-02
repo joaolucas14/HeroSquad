@@ -2,6 +2,17 @@ import { IoIosCloseCircle } from "react-icons/io";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import "./Heroi.css";
 
+interface HeroiProps{
+    id: number;
+    nome: string; 
+    descricao: string;
+    imagem: string;
+    favorito: boolean;
+    corDeFundo: string
+    aoDeletar: (id: number) => void ; 
+    aoFavoritar: (id: number) => void; 
+}
+
 const Heroi = ({
   id,
   nome,
@@ -11,7 +22,7 @@ const Heroi = ({
   aoDeletar,
   favorito,
   aoFavoritar,
-}) => {
+}: HeroiProps) => {
   function favoritar() {
     aoFavoritar(id);
   }
